@@ -7,7 +7,7 @@ module.exports = RingBuffer;
  * Initializes a new empty `RingBuffer` with the given `capacity`, when no
  * value is provided uses the default capacity (50).
  *
- * @param {capacity}
+ * @param {Number} [capacity]
  * @return {RingBuffer}
  * @api public
  */

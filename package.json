@@ -1,8 +1,16 @@
 {
-  "name": "ringbufferjs",
-  "version": "0.0.1",
+  "name": "ringbuf",
+  "version": "0.1.0",
   "description": "a simple ring buffer data structure",
-  "author": "Jano González <info@janogonzalez.com>",
+  "contributors": [
+    {
+      "name": "Tao Yuan"
+    },
+    {
+      "name": "Jano González",
+      "email": "info@janogonzalez.com"
+    }
+  ],
   "devDependencies": {
     "mocha": "*",
     "expect.js": "*"
@@ -16,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/janogonzalez/ringbufferjs.git"
+    "url": "git://github.com/taoyuan/ringbuf.git"
   },
   "keywords": [
     "ring",
