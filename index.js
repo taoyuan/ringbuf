@@ -51,7 +51,7 @@ RingBuffer.prototype.isFull = function() {
 /**
  * Peeks at the top element(s) of the queue.
  *
- * @param {Number} count
+ * @param {Number} [count]
  * @return {Object|Array}
  * @throws {Error} when the ring buffer is empty.
  * @api public
