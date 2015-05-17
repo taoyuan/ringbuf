@@ -12,10 +12,8 @@ module.exports = RingBuffer;
  * @api public
  */
 function RingBuffer(capacity) {
-  this._elements = new Array(capacity || 50);
-  this._first = 0;
-  this._last = 0;
-  this._size = 0;
+  this._capacity = capacity || 50;
+  this.clear();
 }
 
 /**
@@ -87,7 +85,7 @@ RingBuffer.prototype.deq = function() {
 };
 
 /**
- * Enqueues the `element` at the end of the ring buffer and returns its new size.
+ * Enqueue the `element` at the end of the ring buffer and returns its new size.
  *
  * @param {Object} element
  * @return {Number}
@@ -114,4 +112,16 @@ RingBuffer.prototype.enq = function(element) {
  */
 RingBuffer.prototype.size = function() {
   return this._size;
+};
+
+/**
+ * Clear all elements.
+ *
+ * @api public
+ */
+RingBuffer.prototype.clear = function() {
+  this._elements = new Array(this._capacity);
+  this._first = 0;
+  this._last = 0;
+  this._size = 0;
 };

@@ -152,4 +152,15 @@ describe('RingBuffer()', function() {
       expect(buffer.size()).to.be(2);
     });
   });
+
+  describe('#clear()', function() {
+    it('should be empty after clear', function() {
+      var buffer = new RingBuffer();
+      buffer.enq('jano');
+      buffer.enq('valentina');
+      expect(buffer.size()).to.be(2);
+      buffer.clear();
+      expect(buffer.size()).to.be(0);
+    });
+  });
 });
