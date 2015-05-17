@@ -1,7 +1,7 @@
 # RingBuf
 
-[![Build](https://circleci.com/gh/taoyuan/witty.svg?style=shield)](https://circleci.com/gh/taoyuan/ringbuf)
-[![Dependencies](https://david-dm.org/taoyuan/witty.svg)](https://david-dm.org/taoyuan/ringbuf)
+[![Build](https://circleci.com/gh/taoyuan/ringbuf.svg?style=shield)](https://circleci.com/gh/taoyuan/ringbuf)
+[![Dependencies](https://david-dm.org/taoyuan/ringbuf.svg)](https://david-dm.org/taoyuan/ringbuf)
 
 A simple ring buffer data structure for Node.js and the browser.
 
