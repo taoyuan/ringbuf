@@ -1,25 +1,30 @@
-# ringbuffer.js
+# RingBuf
+
+[![Build](https://circleci.com/gh/taoyuan/witty.svg?style=shield)](https://circleci.com/gh/taoyuan/ringbuf)
+[![Dependencies](https://david-dm.org/taoyuan/witty.svg)](https://david-dm.org/taoyuan/ringbuf)
 
 A simple ring buffer data structure for Node.js and the browser.
+
+This repository is forked from [janogonzalez/ringbufferjs](http://github.com/janogonzalez/ringbufferjs)
 
 ## Installation
 
 As component for the browser:
 
 ```
-$ component install janogonzalez/ringbufferjs
+$ component install taoyuan/ringbuf
 ```
 
 As npm for Node.js:
 
 ```
-$ npm install ringbufferjs
+$ npm install ringbuf
 ```
 
 ## Example
 
 ```js
-var RingBuffer = require('ringbufferjs');
+var RingBuffer = require('ringbuf');
 
 var ring = new RingBuffer(2);
 
@@ -27,8 +32,8 @@ ring.enq(10);
 ring.enq(5);
 ring.enq(1); // 10 will be discarded
 ring.size(); // 2
-ring.peek(); // 10
-ring.deq(); // 10
+ring.peek(); // 5
+ring.deq();  // 5
 ring.size(); // 1
 ```
 
