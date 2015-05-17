@@ -54,6 +54,38 @@ describe('RingBuffer()', function() {
       buffer.enq('valentina');
       expect(buffer.peek()).to.be('jano');
     });
+
+    it('returns top 2 elements if passed count of 2', function() {
+      var buffer = new RingBuffer();
+      buffer.enq('jano');
+      buffer.enq('valentina');
+      buffer.enq('rodrigo');
+      var results = buffer.peek(2);
+      expect(results).to.have.length(2);
+      expect(results).to.have.property(0, 'jano');
+      expect(results).to.have.property(1, 'valentina');
+    });
+
+    it('returns top 2 elements if passed count of 2 and even if wrapping', function() {
+      var buffer = new RingBuffer(2);
+      buffer.enq('ignore'); // This will get replaced by valentina
+      buffer.enq('jano');
+      buffer.enq('valentina');
+      var results = buffer.peek(2);
+      expect(results).to.have.length(2);
+      expect(results).to.have.property(0, 'jano');
+      expect(results).to.have.property(1, 'valentina');
+    });
+
+    it('returns all elements if passed count > size', function() {
+      var buffer = new RingBuffer(2);
+      buffer.enq('jano');
+      buffer.enq('valentina');
+      var results = buffer.peek(3);
+      expect(results).to.have.length(2);
+      expect(results).to.have.property(0, 'jano');
+      expect(results).to.have.property(1, 'valentina');
+    });
   });
 
   describe('#deq()', function() {

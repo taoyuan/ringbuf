@@ -49,16 +49,25 @@ RingBuffer.prototype.isFull = function() {
 };
 
 /**
- * Peeks at the top element of the queue.
+ * Peeks at the top element(s) of the queue.
  *
- * @return {Object}
+ * @param {Number} count
+ * @return {Object|Array}
  * @throws {Error} when the ring buffer is empty.
  * @api public
  */
-RingBuffer.prototype.peek = function() {
+RingBuffer.prototype.peek = function(count) {
   if (this.isEmpty()) throw new Error('RingBuffer is empty');
 
-  return this._elements[this._first];
+  if (count === undefined) return this._elements[this._first];
+
+  count = Math.min(count, this.size());
+  var results = new Array(count);
+  for (var i = this._first, c = 0; c < count; i++, c++) {
+    if (i >= this.capacity()) i = 0; // Wrap around to the beginning
+    results[c] = this._elements[i];
+  }
+  return results;
 };
 
 /**
